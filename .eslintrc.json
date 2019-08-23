@@ -1,0 +1,16 @@
+{
+  "env": {
+    "node": true,
+    "browser": true
+  },
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "plugins": ["sort-imports-es6-autofix", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "sort-imports-es6-autofix/sort-imports-es6": "warn"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "sourceType": "module"
+  }
+}
