@@ -1,6 +1,7 @@
 import { DefaultPage } from './pages/default.js';
 import { LinkList } from './components/lists/linklist.js';
 import { logger } from './lib/logger.js';
+import { registerFramesRoutes } from './routes/frames.js';
 import { renderToStream } from '@popeindustries/lit-html-server';
 
 export { server };
@@ -12,7 +13,7 @@ export { server };
  * @param {number} port
  */
 function server(app, port) {
-  const routeLinks = registerRoutes(app);
+  const routeLinks = registerRoutes(app, registerFramesRoutes);
 
   app.get('/', (req, res) => {
     res.status(200);
@@ -27,7 +28,7 @@ function server(app, port) {
 function registerRoutes(app, ...routeHandlers) {
   const links = [];
   routeHandlers.forEach((routeHandler) => {
-    links.push(routeHandler(app));
+    links.push(...routeHandler(app));
   });
 
   return links;

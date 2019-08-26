@@ -16,6 +16,7 @@ function DefaultPage(metadata, content) {
         <h1>${metadata.title}</h1>
         ${content}
       </body>
+      <script src="/scripts/index.js" type="module"></script>
     </html>
   `;
 }
